@@ -39,7 +39,8 @@ def bouger ( pos,drn,items):
             r= ( i+1,j),'S'
     return r
 grille = tk.Tk()
-canvas=tk.Canvas(grille,bg='lightSteelblue1', height=HEIGHT, width=WIDTH)
+canvas=tk.Canvas(grille,bg=Color_OFF, height=HEIGHT, width=WIDTH)
+canvas.pack(side='left')
 
 #Fonction qui change l couleur de la case actuelle
 def case_courante(i,j):
