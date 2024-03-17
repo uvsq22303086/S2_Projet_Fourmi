@@ -42,6 +42,8 @@ grille = tk.Tk()
 canvas=tk.Canvas(grille,bg=Color_OFF, height=HEIGHT, width=WIDTH)
 canvas.pack(side='left')
 
+
+
 #Fonction qui change l couleur de la case actuelle
 def case_courante(i,j):
     if (i+j)%2 == 0:#Si la case est blanche
