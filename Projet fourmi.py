@@ -80,8 +80,8 @@ grille.mainloop() # Lancement de la boucle principale
 
 
 
-#fourmis : le code est inspiré du cite : https://rosettacode.org/wiki/Langton%27s_ant#Python
-def fourmis(width, height, max_nb_steps):
+#fourmi : le code est inspiré du cite : https://rosettacode.org/wiki/Langton%27s_ant#Python
+def fourmi(width, height, max_nb_steps):
     grid = [[" "] * width for _ in range(height)]
     x = width // 2
     y = height // 2
