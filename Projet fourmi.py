@@ -80,32 +80,6 @@ grille.mainloop() # Lancement de la boucle principale
 
 
 
-#fourmi : le code est inspiré du cite : https://rosettacode.org/wiki/Langton%27s_ant#Python
-
-def fourmi(width, height, max_nb_steps):
-    grid = [[" "] * width for _ in range(height)]
-
-    # Position initiale de la fourmi
-     x = width // 2 
-     y = height // 2
-    direction = "haut"
-i = 0
-
-# Boucle principale
-while i < max_nb_steps and 0 <= x < width and 0 <= y < height:
-       
-        invert_color(grid, x, y)
-        direction = next_direction(grid, x, y, direction)   
-    
-    # Affichage de la grille actuelle
-          x, y = next_position(x, y, direction)
-    
-        print_grid(grid)
-
- # Incrément du compteur d'étapes
-        i += 1
-
-
 
 
 
