@@ -1,15 +1,33 @@
 #Code inspiré du site : http://pascal.ortiz.free.fr/contents/tkinter/projets_tkinter/langton/langton.html
 
+#GRILLE:
 import tkinter as tk
-
-HEIGHT = 500
-WIDTH = 500
 SIDE = 500
-UNIT= SIDE // 7
-largeur_case = WIDTH // 7
-hauteur_case = HEIGHT // 7
-Color_OFF= 'old lace'
-Color_ON='grey 16'
+WIDTH = SIDE
+HEIGHT = SIDE
+DIM = 20
+UNIT = SIDE // DIM
+COLOR_OFF = 'snow'
+COLOR_ON = 'gray16'
+
+def make_grid():
+    for j in range(nwidth):
+        cnv.create_line((j * UNIT, 0), (j * UNIT, HEIGHT))
+    for i in range(nheight):
+        cnv.create_line((0, i * UNIT), (WIDTH, i * UNIT))
+
+
+root = tk.Tk()
+cnv = tk.Canvas(root, width=WIDTH, height=HEIGHT,
+             background=COLOR_OFF)
+cnv.pack()
+
+nwidth = WIDTH // UNIT
+nheight = HEIGHT // UNIT
+
+make_grid()
+
+
 #items[i][j]= plateau dessiner par deplacement de la fourmi, 
 #items==0 case blanche = déplacement droite
 #pos=position de la fourmi (i,j)
@@ -73,13 +91,36 @@ def dessin(pos,drn,items):
 #Il manque l'animation de la fourmi, la fourmi, et les touches de contrôle pour créer le mouvement
 
 
-
-
-grille.mainloop() # Lancement de la boucle principale
 #Interface graphique crée
 
 
 
+#fourmi : le code est inspiré du cite : https://rosettacode.org/wiki/Langton%27s_ant#Python
 
+def fourmi(width, height, max_nb_steps):
+    grid = [[" "] * width for _ in range(height)]
+
+    # Position initiale de la fourmi
+     x = width // 2 
+     y = height // 2
+    direction = "haut"
+i = 0
+
+# Boucle principale
+while i < max_nb_steps and 0 <= x < width and 0 <= y < height:
+       
+        invert_color(grid, x, y)
+        direction = next_direction(grid, x, y, direction)   
+    
+    # Affichage de la grille actuelle
+          x, y = next_position(x, y, direction)
+    
+        print_grid(grid)
+
+ # Incrément du compteur d'étapes
+        i += 1
+
+
+root.mainloop() #lancemant de la boucle IL FAUT LE LAISSER A LA FIN
 
 
